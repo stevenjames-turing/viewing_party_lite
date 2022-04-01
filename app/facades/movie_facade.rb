@@ -21,4 +21,14 @@ class MovieFacade
     json = MovieService.movie_id_search(id)
     Movie.new(json)
   end
+
+  def self.movie_reviews(id)
+    json = MovieService.movie_reviews(id)
+    
+    @movie_reviews = json[:results].map do |review|
+      Review.new(review)
+    end
+  end
+
+  
 end
