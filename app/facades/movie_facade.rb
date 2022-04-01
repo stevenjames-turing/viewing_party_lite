@@ -33,8 +33,10 @@ class MovieFacade
   def self.movie_cast(id)
     json = MovieService.movie_cast(id)
     
-    @movie_cast = json[:cast].map do |actor|
+    all_cast = json[:cast].map do |actor|
       CastMember.new(actor)
     end
+    @movie_cast = all_cast[0..9]
+  end 
 
 end

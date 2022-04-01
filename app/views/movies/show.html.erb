@@ -45,15 +45,46 @@
               </li>
               <li class="list-group-item">
               <h5>Cast</h5>
-              <div>PUT CAST HERE</div>
-              </li>
-              <li class="list-group-item">
-              <h5>Reviews</h5>
-              <div>PUT REVIEWS HERE</div>
+              <div>
+                <% @cast.each do |member| %>
+                  <b><%= member.name %></b> as <em><%= member.character %> <br></em>
+                <% end %>
+              </div>
               </li>
             </ul>
             </p>
           </div>
+          <div class="card-title">
+            <div id="wrapper">
+              <h3 class="align-center"><%= @reviews.count %> Reviews</h3>
+            </div>
+            <style>
+            h1.align-left {
+                text-align:left;
+                padding:0;
+                margin:0;
+                position:absolute;
+            }
+
+            h1.align-center{
+              text-align: center;
+            }
+            </style>
+          </div>
+          <% @reviews.each do |review| %>
+          <div class="card-body">
+            <p class="card-text">
+            <ul class="host list-group">
+              <li class="list-group-item">
+              <div>  
+                  Author: <%= review.author %> <br>
+                  <%= review.content %>
+              </div>
+              </li>
+            </ul>
+            </p>
+          </div>
+          <% end %>
         </div>
       </div>
     </div>

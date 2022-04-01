@@ -2,7 +2,7 @@
 
 class MoviesController < ApplicationController
   before_action :find_user_and_movie, only: [:show]
-  before_action :find_reviews, only: [:show]
+  before_action :find_reviews_and_cast, only: [:show]
   before_action :find_user, only: [:index]
 
   def index
@@ -24,7 +24,7 @@ class MoviesController < ApplicationController
   end
 
   def find_reviews_and_cast
-    @review = MovieFacade.movie_reviews(params[:id])
+    @reviews = MovieFacade.movie_reviews(params[:id])
     @cast = MovieFacade.movie_cast(params[:id])
   end
 
