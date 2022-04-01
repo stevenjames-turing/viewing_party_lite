@@ -34,7 +34,7 @@ class MovieFacade
     json = MovieService.movie_cast(id)
     
     @movie_cast = json[:cast].map do |actor|
-      Review.new(actor)
+      CastMember.new(actor)
     end
 
 end
