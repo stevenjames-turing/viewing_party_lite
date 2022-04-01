@@ -30,5 +30,11 @@ class MovieFacade
     end
   end
 
-  
+  def self.movie_cast(id)
+    json = MovieService.movie_cast(id)
+    
+    @movie_cast = json[:cast].map do |actor|
+      Review.new(actor)
+    end
+
 end
