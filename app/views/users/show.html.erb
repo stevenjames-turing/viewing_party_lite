@@ -15,7 +15,14 @@
       <div class="card-block">
         <div class="card mb-3 col-lg-4 d-flex align-items-stretch" style="max-width: 25rem;" id="<%= vp.id %>">
           <div class="card-title">
-            <h4><%= vp.movie_data.title %></h4>
+            <h4><%= link_to vp.movie_data.title, user_movie_path(@user, vp.movie_data.id)%></h4>
+            <% @user.user_parties.each do |user_party| %>
+              <% if user_party.viewing_party_id == vp.id %>
+                <h5>Hosting</h5>
+              <% else %>
+                <h5>Invited</h5>
+              <% end %>
+            <% end %>
           </div>
           <div class="card-body">
             <img class="card-img-top" src=<%= "https://image.tmdb.org/t/p/original/#{vp.movie_data.poster}"%>>
@@ -34,7 +41,7 @@
                     Host: <%= party.user.name %> <br>
                   <% else %>
                     <% if party.user.email == @user.email  %>
-                      <b> Invitee: <%= party.user.name %> </b> <br> 
+                      Invitee: <b> <%= party.user.name %> </b> <br> 
                     <% else %>
                       Invitee: <%= party.user.name %> <br>
                     <% end  %>
