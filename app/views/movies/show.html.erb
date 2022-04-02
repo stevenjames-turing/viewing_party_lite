@@ -1,15 +1,93 @@
-<h1><%= @movie.title %></h1>
-
-<%=button_to "Create Viewing Party for #{@movie.title}", new_user_movie_viewing_party_path(@user, @movie.id), method: :get %>
-
-<p>Vote Average: <%= @movie.vote_average %></p>
-<p>Runtime: <%= "#{@movie.runtime}mins" %></p>
 
 
-<p>Genre: <% @movie.genres.each do |genre|%>
-          <%= genre[:name] %></p>
-          <% end  %>
-<h3><%=@movie.summary%></h3>
+<p>
+<div class="container" align="center" id="movie-info">
+  <div class="col-md-12 text-center">
+    <h1><%= @movie.title %></h1>
+    <p><div class="container" align="center">
+      <%= button_to "Discover Page", user_discover_index_path(@user), method: :get %>
+    </div></p>
+    <p><div class="container" align="center">
+      <%=button_to "Create Viewing Party for #{@movie.title}", new_user_movie_viewing_party_path(@user, @movie.id), method: :get %>
+    </div></p>
 
 
-<%= button_to "Discover Page", user_discover_index_path(@user), method: :get %>
+    <div class="card-deck" align="center">
+      <div class="card-block" align="center">
+        <div class="card mb-3 col-lg-4 d-flex align-items-stretch" style="max-width: 60rem;">
+          <div class="card-title">
+            <div id="wrapper">
+              <h6 class="align-left">Vote Average: <%= @movie.vote_average %></h6>
+              <h6 class="align-center">Runtime: <%= "#{@movie.runtime}mins" %></h6>
+              <h6 class="align-right">Genre: <% @movie.genres.each do |genre|%>
+                                              <%= genre[:name] %>,
+                                              <% end %></h6>
+            </div>
+            <style>
+            h1.align-left {
+                text-align:left;
+                padding:0;
+                margin:0;
+                position:absolute;
+            }
+
+            h1.align-center{
+              text-align: center;
+            }
+            </style>
+          </div>
+          <div class="card-body">
+            <p class="card-text">
+            <ul class="host list-group">
+              <li class="list-group-item">
+              <h5>Summary</h5>
+              <div><%=@movie.summary%></div>
+              </li>
+              <li class="list-group-item">
+              <h5>Cast</h5>
+              <div>
+                <% @cast.each do |member| %>
+                  <b><%= member.name %></b> as <em><%= member.character %> <br></em>
+                <% end %>
+              </div>
+              </li>
+            </ul>
+            </p>
+          </div>
+          <div class="card-title">
+            <div id="wrapper">
+              <h3 class="align-center"><%= @reviews.count %> Reviews</h3>
+            </div>
+            <style>
+            h1.align-left {
+                text-align:left;
+                padding:0;
+                margin:0;
+                position:absolute;
+            }
+
+            h1.align-center{
+              text-align: center;
+            }
+            </style>
+          </div>
+          <% @reviews.each do |review| %>
+          <div class="card-body">
+            <p class="card-text">
+            <ul class="host list-group">
+              <li class="list-group-item">
+              <div>  
+                  Author: <%= review.author %> <br>
+                  <%= review.content %>
+              </div>
+              </li>
+            </ul>
+            </p>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</p>

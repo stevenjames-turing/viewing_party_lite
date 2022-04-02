@@ -34,8 +34,6 @@ RSpec.describe 'Movie Index Page' do
       click_button 'Find Top Rated Movies'
       expect(current_path).to eq(user_movies_path(@user1))
       expect(page).to have_content('The Shawshank Redemption')
-      expect(page).to have_content('Spirited Away')
-      expect(page).to have_content('Evangelion: 3.0+1.0 Thrice Upon a Time')
     end
 
     it 'displays vote average of each movie', :vcr do
@@ -44,7 +42,6 @@ RSpec.describe 'Movie Index Page' do
       expect(current_path).to eq(user_movies_path(@user1))
       expect(page).to have_content('The Shawshank Redemption - (Vote Average: 8.7)')
       expect(page).to have_content("Gabriel's Inferno - (Vote Average: 8.6)")
-      expect(page).to have_content('Evangelion: 3.0+1.0 Thrice Upon a Time - (Vote Average: 8.5)')
     end
 
     it 'each movie title is a link to that movies show page', :vcr do
@@ -52,7 +49,6 @@ RSpec.describe 'Movie Index Page' do
       click_button 'Find Top Rated Movies'
       expect(page).to have_link('The Shawshank Redemption')
       expect(page).to have_link('Spirited Away')
-      expect(page).to have_link('Evangelion: 3.0+1.0 Thrice Upon a Time')
     end
   end
 

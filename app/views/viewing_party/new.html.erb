@@ -1,27 +1,50 @@
-<center><h2>Create A Movie Party</h2></center>
+<center><h2>Create A Movie Party for <%= @movie.title %></h2></center>
+<p>
+<div class="container" align="center" id="discover_movies">
+      <%= button_to("Discover Movies", user_discover_index_path(@user), method: :get)%>      
+</div>
+</p>
+<p>
+<div class="container" align="center" id="movie-info">
+  <div class="col-md-12 text-center">
+    <div class="card-deck" align="center">
+      <div class="card-block" align="center">
+        <div class="card mb-3 col-lg-4 d-flex align-items-stretch" style="max-width: 60rem;">
+          <div class="card-title">
+            <h3>Viewing Party Details</h3>
+          </div>
+          <div class="card-body">
+            <p class="card-text">
+            <ul class="host list-group">
+              <li class="list-group-item">
+              <%= form_with url: user_movie_viewing_party_index_path(@user, @movie.id), method: :post, local: true do |form| %>
+              <h6><b>Movie Title:</b> <%= @movie.title %></h6>
+              <br>
+              <center><%= form.label :duration %>
+              <%= form.number_field :duration, value: "#{@movie.runtime}"%></center>
+              <br>
+              <center><%= form.label :date%>
+              <%= form.date_field :date%></center>
+              <br>
+              <center><%= form.label :start_time%>
+              <%= form.time_field :start_time%></center>
+              <br>
 
-<center><h3>Viewing Party Details</h3></center>
+              <center><h4>Invite other users</h4></center>
+              <%= form.collection_check_boxes(:user, User.where.not(id: params[:user_id]), :id, :name, include_hidden: false)%>
+              <%= form.hidden_field(:movie_id, value: @movie.id)%>
+              <br><br><br>
+              <%= form.submit "Create Party" %></center>
+              <% end %>
+              </li>
+            </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</p>
 
-<%= form_with url: user_movie_viewing_party_index_path(@user, @movie.id), method: :post, local: true do |form| %>
 
-<center><%= form.label :title %>
-<%= form.text_field :title, placeholder: "#{@movie.title}"%></center>
-<br>
-<center><%= form.label :duration %>
-<%= form.number_field :duration, value: "#{@movie.runtime}"%></center>
-<br>
-<center><%= form.label :date%>
-<%= form.date_field :date%></center>
-<br>
-<center><%= form.label :start_time%>
-<%= form.time_field :start_time%></center>
-<br>
-
-<center><h4>Invite other users</h4></center>
-<center><% User.all.each do |user| %>
-<%= form.check_box :user %>
-<%= form.label :user, "#{user.name} (#{user.email})" %>
-<% end %>
-<br><br><br>
-<%= form.submit "Create Party" %></center>
-<% end %>

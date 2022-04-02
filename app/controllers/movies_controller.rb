@@ -2,6 +2,7 @@
 
 class MoviesController < ApplicationController
   before_action :find_user_and_movie, only: [:show]
+  before_action :find_reviews_and_cast, only: [:show]
   before_action :find_user, only: [:index]
 
   def index
@@ -20,6 +21,11 @@ class MoviesController < ApplicationController
   def find_user_and_movie
     @movie = MovieFacade.movie_id_search(params[:id])
     @user = User.find(params[:user_id])
+  end
+
+  def find_reviews_and_cast
+    @reviews = MovieFacade.movie_reviews(params[:id])
+    @cast = MovieFacade.movie_cast(params[:id])
   end
 
   def find_user

@@ -13,7 +13,6 @@ RSpec.describe 'New party page' do
     fill_in :date, with: '3/23/2022'
     fill_in :start_time, with: '6:30'
 
-    expect(page).to have_field('title', placeholder: 'Pirates of the Caribbean: The Curse of the Black Pearl')
     expect(page).to have_field('duration', with: 102)
     expect(page).to have_field('date')
     expect(page).to have_button('Create Party')
