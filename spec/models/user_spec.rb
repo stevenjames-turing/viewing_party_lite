@@ -16,11 +16,28 @@ RSpec.describe User, type: :model do
     it { should have_secure_password }
   end
 
-  describe 'password validation' do 
+  describe 'user creation' do 
     it 'encrypts password' do 
       user = User.create(name: 'Meg', email: 'meg@test.com', password: 'password123', password_confirmation: 'password123')
+
       expect(user).to_not have_attribute(:password)
       expect(user.password_digest).to_not eq('password123')
+    end
+
+    it 'creates a user when email is unique and passwords match' do 
+      user = User.create(name: 'Meg', email: 'meg@test.com', password: 'password123', password_confirmation: 'password123')
+
+      expect(user).to be_instance_of User
+      expect(user).to_not have_attribute(:password)
+      expect(user.password_digest).to_not eq('password123')
+    end
+
+    xit 'fails to create user if the email is not unique' do 
+     
+    end
+
+    xit 'fails to create user if passwords do not match' do 
+
     end
   end
 end
