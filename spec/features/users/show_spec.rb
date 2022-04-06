@@ -10,9 +10,9 @@ RSpec.describe 'User Dashboard Page' do
                                 start_time: Time.new(2022, 0o4, 11, 20, 30))
     @vp3 = ViewingParty.create!(movie_id: 314, duration: 154, date: Time.new(2022, 0o4, 14, 18, 30),
                                 start_time: Time.new(2022, 0o4, 14, 18, 30))
-    @user1 = User.create!(name: 'Becky', email: 'becky@example.com')
-    @user2 = User.create!(name: 'Steven', email: 'steven@example.com')
-    @user5 = User.create!(name: 'Bruce', email: 'Bruce@example.com')
+    @user1 = User.create!(name: 'Becky', email: 'becky@example.com', password: 'test')
+    @user2 = User.create!(name: 'Steven', email: 'steven@example.com', password: 'test')
+    @user5 = User.create!(name: 'Bruce', email: 'Bruce@example.com', password: 'test')
     @up1 = UserParty.create!(viewing_party: @vp1, user: @user1, host: true)
     @up2 = UserParty.create!(viewing_party: @vp1, user: @user2, host: false)
     @up5 = UserParty.create!(viewing_party: @vp2, user: @user5, host: true)
