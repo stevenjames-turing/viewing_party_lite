@@ -8,6 +8,6 @@ class DiscoverController < ApplicationController
   private
 
   def find_user
-    @user = User.find(params[:user_id])
+    @user = User.find(session[:user_id]) if session[:user_id]
   end
 end

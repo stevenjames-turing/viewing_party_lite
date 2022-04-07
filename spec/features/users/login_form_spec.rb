@@ -11,7 +11,7 @@ RSpec.describe 'User Login Form' do
     fill_in 'email', with: 'meg@test.com'
     fill_in 'password', with: 'password123'
     click_button 'Submit'
-    expect(current_path).to eq(user_path(@user1.id))
+    expect(current_path).to eq(dashboard_path)
   end
   
   it 'user must provide valid email address' do 
