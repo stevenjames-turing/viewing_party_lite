@@ -64,36 +64,8 @@ RSpec.describe 'Landing Page' do
       expect(page).to have_content(@user2.email)
       expect(page).to have_content(@user5.email)
       expect(page).to have_content(@user6.email)
-      expect(page).to_not have_content(@vp1.movie_id)
     end
   end
-
-  it 'existing users link to user dashboard', :vcr do
-    visit login_form_path
-    fill_in 'email', with: 'becky@example.com'
-    fill_in 'password', with: 'test'
-    click_button 'Submit'
-
-    visit '/'
-
-    within '#existing_users' do
-      expect(page).to have_link(@user1.email.to_s)
-      expect(page).to have_link(@user2.email.to_s)
-      expect(page).to have_link(@user5.email.to_s)
-      expect(page).to have_link(@user6.email.to_s)
-
-      click_link @user1.email.to_s
-      expect(current_path).to eq(dashboard_path)
-    end
-
-    click_link('Home')
-
-    within '#existing_users' do
-      click_link @user2.email.to_s
-      expect(current_path).to eq(dashboard_path)
-    end
-  end
-
 
   it 'has a button to log out a user after logging in ', :vcr do 
     visit login_form_path

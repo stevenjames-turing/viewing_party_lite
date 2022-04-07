@@ -2,7 +2,7 @@
   <div align="center" id="existing_users">
     <h3>Existing Users:</h2>
     <% @users.each do |user| %>
-      <%= link_to user.email, dashboard_path %> <br>
+      <%= user.email %> <br>
     <% end %>
   </div>
 <% end %>
