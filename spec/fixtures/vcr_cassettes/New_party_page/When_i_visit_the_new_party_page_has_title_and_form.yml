@@ -25,7 +25,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 07 Apr 2022 19:57:26 GMT
+      - Thu, 07 Apr 2022 21:36:41 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -42,23 +42,23 @@ http_interactions:
       X-Memc-Key:
       - 92f0f4310f9aec63bc8c99b5e9b827912d7866f4
       X-Memc-Age:
-      - '12332'
+      - '1363'
       X-Memc-Expires:
-      - '4580'
+      - '14950'
       Etag:
-      - W/"a75bac4abb36b2b18955f96dd0cf2954"
+      - W/"34cae48ea4ad2406ce5ddbb416fa09b1"
       Vary:
       - Accept-Encoding
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 e6552b5b0ecd114591ab94e378fc89f8.cloudfront.net (CloudFront)
+      - 1.1 479aaa0a2cf1d8d19840caa21afcb754.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - DFW56-P5
+      - IAH50-C4
       X-Amz-Cf-Id:
-      - 9AB1kfT4SYDmd_VG0-GoU_yJAJ-Jdhyosv5378SD8erCuGJvTZxhsA==
+      - r4nXSE04_95vZdT87u7Z19J4UPH8aZ7qo5NMa2dF62WNZm_szQGkuQ==
       Age:
-      - '5382'
+      - '56'
     body:
       encoding: ASCII-8BIT
       string: '{"adult":false,"backdrop_path":"/3rlclw8qHWEX2hYHNi7dAaW1e0.jpg","belongs_to_collection":{"id":295,"name":"Pirates
@@ -71,6 +71,6 @@ http_interactions:
         Bruckheimer Films","origin_country":"US"}],"production_countries":[{"iso_3166_1":"US","name":"United
         States of America"}],"release_date":"2003-07-09","revenue":655011224,"runtime":143,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"Prepare
         to be blown out of the water.","title":"Pirates of the Caribbean: The Curse
-        of the Black Pearl","video":false,"vote_average":7.8,"vote_count":17199}'
-  recorded_at: Thu, 07 Apr 2022 21:27:08 GMT
+        of the Black Pearl","video":false,"vote_average":7.8,"vote_count":17200}'
+  recorded_at: Thu, 07 Apr 2022 21:37:37 GMT
 recorded_with: VCR 6.1.0

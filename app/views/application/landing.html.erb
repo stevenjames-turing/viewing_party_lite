@@ -1,7 +1,8 @@
-
-<div align="center" id="existing_users">
-  <h3>Existing Users:</h2>
-  <% @users.each do |user| %>
-    <%= link_to user.email, dashboard_path %> <br>
-  <% end %>
-</div>
+<% if current_user %>
+  <div align="center" id="existing_users">
+    <h3>Existing Users:</h2>
+    <% @users.each do |user| %>
+      <%= link_to user.email, dashboard_path %> <br>
+    <% end %>
+  </div>
+<% end %>
