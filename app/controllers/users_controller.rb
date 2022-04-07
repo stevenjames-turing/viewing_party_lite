@@ -16,6 +16,18 @@ class UsersController < ApplicationController
       flash.notice = user.errors.full_messages.to_sentence
     end
   end
+  
+  def login_form; end
+  
+  def login_user
+    user = User.find_by(email: params[:email])
+    if user.authenticate(params[:password]) != false 
+      redirect_to user_path(user.id)
+    else 
+      redirect_to login_form
+      flash.notice = user.errors.full_messages.to_sentence
+    end
+  end
 
   private 
 
