@@ -5,6 +5,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(session[:user_id]) if session[:user_id]
+    if @user.nil?
+      redirect_to root_path
+      flash.notice = "Please login or register to access dashboard"
+    end
   end
 
   def create
@@ -18,19 +22,6 @@ class UsersController < ApplicationController
     end
   end
   
-  def login_form; end
-  
-  def login_user
-    user = User.find_by(email: params[:email])
-    if !user.nil? && user.authenticate(params[:password]) != false 
-      session[:user_id] = user.id
-      redirect_to dashboard_path
-    else 
-      redirect_to login_form_path
-      flash.notice = "Invalid Credentials"
-    end
-  end
-
   private 
 
   def user_params
