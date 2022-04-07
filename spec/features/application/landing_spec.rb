@@ -11,10 +11,10 @@ RSpec.describe 'Landing Page' do
                                 start_time: Time.new(2022, 0o4, 12, 21, 0o0))
     @vp2 = ViewingParty.create!(movie_id: 112, duration: 152, date: Time.new(2022, 0o4, 11, 20, 30),
                                 start_time: Time.new(2022, 0o4, 11, 20, 30))
-    @user1 = User.create!(name: 'Becky', email: 'becky@example.com')
-    @user2 = User.create!(name: 'Steven', email: 'steven@example.com')
-    @user5 = User.create!(name: 'Bruce', email: 'Bruce@example.com')
-    @user6 = User.create!(name: 'Tony', email: 'Tony@example.com')
+    @user1 = User.create!(name: 'Becky', email: 'becky@example.com', password: 'test')
+    @user2 = User.create!(name: 'Steven', email: 'steven@example.com', password: 'test')
+    @user5 = User.create!(name: 'Bruce', email: 'Bruce@example.com', password: 'test')
+    @user6 = User.create!(name: 'Tony', email: 'Tony@example.com', password: 'test')
     @up1 = UserParty.create!(viewing_party: @vp1, user: @user1, host: true)
     @up2 = UserParty.create!(viewing_party: @vp1, user: @user2, host: false)
     @up5 = UserParty.create!(viewing_party: @vp2, user: @user5, host: true)
@@ -68,5 +68,11 @@ RSpec.describe 'Landing Page' do
       click_link @user2.email.to_s
       expect(current_path).to eq(user_path(@user2))
     end
+  end
+
+  it 'has a button to login a user' do 
+    expect(page).to have_button('Log In')
+    click_button 'Log In'
+    expect(current_path).to eq(login_form_path)
   end
 end

@@ -4,8 +4,8 @@ require 'rails_helper'
 
 RSpec.describe 'New party page' do
   it 'When i visit the new party page has title and form', :vcr do
-    user_1 = User.create!(name: 'Becky', email: 'becky@example.com')
-    user_2 = User.create!(name: 'Steven', email: 'steven@example.com')
+    user_1 = User.create!(name: 'Becky', email: 'becky@example.com', password: 'test')
+    user_2 = User.create!(name: 'Steven', email: 'steven@example.com', password: 'test')
     movie_id = 22
 
     visit new_user_movie_viewing_party_path(user_1, movie_id)

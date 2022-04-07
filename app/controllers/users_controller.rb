@@ -8,7 +8,34 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.create!(name: params[:name], email: params[:email])
-    redirect_to "/users/#{user.id}"
+    user = User.new(user_params)
+    if (user.save) && (valid_pass == true)
+      redirect_to "/users/#{user.id}"
+    else
+      redirect_to '/register'
+      flash.notice = user.errors.full_messages.to_sentence
+    end
+  end
+  
+  def login_form; end
+  
+  def login_user
+    user = User.find_by(email: params[:email])
+    if !user.nil? && user.authenticate(params[:password]) != false 
+      redirect_to user_path(user.id)
+    else 
+      redirect_to login_form_path
+      flash.notice = "Invalid Credentials"
+    end
+  end
+
+  private 
+
+  def user_params
+    params.permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def valid_pass
+    true if params[:password] == params[:password_confirmation]
   end
 end
