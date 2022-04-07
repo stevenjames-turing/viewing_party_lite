@@ -79,4 +79,13 @@ RSpec.describe 'Landing Page' do
     click_button 'Logout'
     expect(current_path).to eq root_path
   end
+
+  it 'unable to view user dashboard if logged out' do 
+    expect(page).to have_button 'Log In'
+
+    visit dashboard_path
+
+    expect(current_path).to eq root_path
+    expect(page).to have_content("Please login or register to access dashboard")
+  end
 end
