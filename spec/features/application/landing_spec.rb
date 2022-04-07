@@ -12,25 +12,9 @@ RSpec.describe 'Landing Page' do
     @vp2 = ViewingParty.create!(movie_id: 112, duration: 152, date: Time.new(2022, 0o4, 11, 20, 30),
                                 start_time: Time.new(2022, 0o4, 11, 20, 30))
     @user1 = User.create!(name: 'Becky', email: 'becky@example.com', password: 'test')
-    visit login_form_path
-    fill_in 'email', with: 'becky@example.com'
-    fill_in 'password', with: 'test'
-    click_button 'Submit'
     @user2 = User.create!(name: 'Steven', email: 'steven@example.com', password: 'test')
-    visit login_form_path
-    fill_in 'email', with: 'steven@example.com'
-    fill_in 'password', with: 'test'
-    click_button 'Submit'
     @user5 = User.create!(name: 'Bruce', email: 'Bruce@example.com', password: 'test')
-    visit login_form_path
-    fill_in 'email', with: 'Bruce@example.com'
-    fill_in 'password', with: 'test'
-    click_button 'Submit'
     @user6 = User.create!(name: 'Tony', email: 'Tony@example.com', password: 'test')
-    visit login_form_path
-    fill_in 'email', with: 'Tony@example.com'
-    fill_in 'password', with: 'test'
-    click_button 'Submit'
     @up1 = UserParty.create!(viewing_party: @vp1, user: @user1, host: true)
     @up2 = UserParty.create!(viewing_party: @vp1, user: @user2, host: false)
     @up5 = UserParty.create!(viewing_party: @vp2, user: @user5, host: true)
@@ -50,6 +34,11 @@ RSpec.describe 'Landing Page' do
   end
 
   it 'has a link to the landing page', :vcr do
+    visit login_form_path
+    fill_in 'email', with: 'becky@example.com'
+    fill_in 'password', with: 'test'
+    click_button 'Submit'
+
     visit dashboard_path
 
     expect(page).to have_link('Home')
@@ -68,6 +57,13 @@ RSpec.describe 'Landing Page' do
   end
 
   it 'existing users link to user dashboard', :vcr do
+    visit login_form_path
+    fill_in 'email', with: 'becky@example.com'
+    fill_in 'password', with: 'test'
+    click_button 'Submit'
+    
+    visit '/'
+
     within '#existing_users' do
       expect(page).to have_link(@user1.email.to_s)
       expect(page).to have_link(@user2.email.to_s)

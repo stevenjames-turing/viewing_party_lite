@@ -52,13 +52,13 @@ http_interactions:
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 b47da3ec0e7532d35176d3affb527e34.cloudfront.net (CloudFront)
+      - 1.1 64585853437a64d04c376ce448746668.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - DFW56-P5
+      - DFW55-C3
       X-Amz-Cf-Id:
-      - 8y8RV3QGt0TA3ZKMDHmwJCTG4512aXyKK8H1H-9Qli8RS8AMerRefw==
+      - eUC6DiPiBU3YgNOxHFf7kz-_QmvaESM1OcL4b7Pf-3YvmPrZVProEw==
       Age:
-      - '266'
+      - '4957'
     body:
       encoding: ASCII-8BIT
       string: '{"adult":false,"backdrop_path":"/3rlclw8qHWEX2hYHNi7dAaW1e0.jpg","belongs_to_collection":{"id":295,"name":"Pirates
@@ -72,5 +72,5 @@ http_interactions:
         States of America"}],"release_date":"2003-07-09","revenue":655011224,"runtime":143,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"Prepare
         to be blown out of the water.","title":"Pirates of the Caribbean: The Curse
         of the Black Pearl","video":false,"vote_average":7.8,"vote_count":17199}'
-  recorded_at: Thu, 07 Apr 2022 20:01:52 GMT
+  recorded_at: Thu, 07 Apr 2022 21:20:03 GMT
 recorded_with: VCR 6.1.0
