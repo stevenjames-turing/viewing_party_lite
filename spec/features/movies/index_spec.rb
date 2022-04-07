@@ -21,7 +21,7 @@ RSpec.describe 'Movie Index Page' do
     @up5 = UserParty.create!(viewing_party: @vp2, user: @user5, host: true)
     @up6 = UserParty.create!(viewing_party: @vp2, user: @user6, host: false)
 
-    visit user_movies_path(@user1)
+    visit movies_path
   end
 
   context 'discover movies button' do
@@ -36,14 +36,14 @@ RSpec.describe 'Movie Index Page' do
     it 'displays the 20 highest rated movies', :vcr do
       visit discover_index_path
       click_button 'Find Top Rated Movies'
-      expect(current_path).to eq(user_movies_path(@user1))
+      expect(current_path).to eq(movies_path)
       expect(page).to have_content('The Shawshank Redemption')
     end
 
     it 'displays vote average of each movie', :vcr do
       visit discover_index_path
       click_button 'Find Top Rated Movies'
-      expect(current_path).to eq(user_movies_path(@user1))
+      expect(current_path).to eq(movies_path)
       expect(page).to have_content('The Shawshank Redemption - (Vote Average: 8.7)')
       expect(page).to have_content("Gabriel's Inferno - (Vote Average: 8.6)")
     end
@@ -61,7 +61,7 @@ RSpec.describe 'Movie Index Page' do
       visit discover_index_path
       fill_in 'search', with: 'Avengers'
       click_button 'Find Movies'
-      expect(current_path).to eq(user_movies_path(@user1))
+      expect(current_path).to eq(movies_path)
 
       expect(page).to have_content('Avengers: Endgame')
       expect(page).to have_content('LEGO Marvel Avengers: Loki in Training')
@@ -70,7 +70,7 @@ RSpec.describe 'Movie Index Page' do
       visit discover_index_path
       fill_in 'search', with: 'Avengers'
       click_button 'Find Movies'
-      expect(current_path).to eq(user_movies_path(@user1))
+      expect(current_path).to eq(movies_path)
 
       expect(page).to have_content('Avengers: Endgame - (Vote Average: 8.3)')
       expect(page).to have_content('Avengers: Age of Ultron - (Vote Average: 7.3)')
@@ -80,7 +80,7 @@ RSpec.describe 'Movie Index Page' do
       visit discover_index_path
       fill_in 'search', with: 'Avengers'
       click_button 'Find Movies'
-      expect(current_path).to eq(user_movies_path(@user1))
+      expect(current_path).to eq(movies_path)
 
       expect(page).to have_link('Avengers: Endgame')
       expect(page).to have_link('LEGO Marvel Avengers: Loki in Training')

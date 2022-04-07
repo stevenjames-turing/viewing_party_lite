@@ -20,7 +20,7 @@ class MoviesController < ApplicationController
 
   def find_user_and_movie
     @movie = MovieFacade.movie_id_search(params[:id])
-    @user = User.find(params[:user_id])
+    @user = User.find(session[:user_id]) if session[:user_id]
   end
 
   def find_reviews_and_cast
@@ -29,6 +29,6 @@ class MoviesController < ApplicationController
   end
 
   def find_user
-    @user = User.find(params[:user_id])
+    @user = User.find(session[:user_id]) if session[:user_id]
   end
 end

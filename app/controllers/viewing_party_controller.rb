@@ -17,7 +17,7 @@ class ViewingPartyController < ApplicationController
   private
 
   def find_user_and_movie
-    @user = User.find(params[:user_id])
+    @user = User.find(session[:user_id]) if session[:user_id]
     @movie = MovieFacade.movie_id_search(params[:movie_id])
   end
 end
