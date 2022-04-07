@@ -28,16 +28,7 @@ RSpec.describe User, type: :model do
       user = User.create(name: 'Meg', email: 'meg@test.com', password: 'password123', password_confirmation: 'password123')
 
       expect(user).to be_instance_of User
-      expect(user).to_not have_attribute(:password)
-      expect(user.password_digest).to_not eq('password123')
-    end
-
-    xit 'fails to create user if the email is not unique' do 
-     
-    end
-
-    xit 'fails to create user if passwords do not match' do 
-
+      expect(User.last.name).to eq(user.name)
     end
   end
 end
