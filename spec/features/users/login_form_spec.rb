@@ -23,5 +23,12 @@ RSpec.describe 'User Login Form' do
     expect(page).to have_content("Invalid Credentials")
   end
   
- 
+  it 'user must provide valid password' do 
+    fill_in 'email', with: 'meg@test.com'
+    fill_in 'password', with: 'wrong_pass'
+    click_button 'Submit'
+
+    expect(current_path).to eq(login_form_path)
+    expect(page).to have_content("Invalid Credentials")
+  end
 end
