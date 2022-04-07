@@ -18,7 +18,7 @@ RSpec.describe 'user registration' do
     click_on 'Submit'
     
     ana = User.last
-    expect(current_path).to eq("/users/#{ana.id}")
+    expect(current_path).to eq(dashboard_path)
   end
   
   describe 'user creation' do 

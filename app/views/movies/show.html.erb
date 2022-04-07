@@ -5,10 +5,10 @@
   <div class="col-md-12 text-center">
     <h1><%= @movie.title %></h1>
     <p><div class="container" align="center">
-      <%= button_to "Discover Page", user_discover_index_path(@user), method: :get %>
+      <%= button_to "Discover Page", discover_index_path, method: :get %>
     </div></p>
     <p><div class="container" align="center">
-      <%=button_to "Create Viewing Party for #{@movie.title}", new_user_movie_viewing_party_path(@user, @movie.id), method: :get %>
+      <%=button_to "Create Viewing Party for #{@movie.title}", new_movie_viewing_party_path(@movie.id), method: :get %>
     </div></p>
 
 

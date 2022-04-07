@@ -3,7 +3,7 @@
 </div></p> 
 <p>
 <div class="container" align="center" id="discover_movies">
-      <%= button_to("Discover Movies", user_discover_index_path(@user), method: :get)%>      
+      <%= button_to("Discover Movies", discover_index_path, method: :get)%>      
 </div>
 </p>
 <p>
@@ -15,7 +15,7 @@
       <div class="card-block">
         <div class="card mb-3 col-lg-4 d-flex align-items-stretch" style="max-width: 25rem;" id="<%= vp.id %>">
           <div class="card-title">
-            <h4><%= link_to vp.movie_data.title, user_movie_path(@user, vp.movie_data.id)%></h4>
+            <h4><%= link_to vp.movie_data.title, movie_path(vp.movie_data.id)%></h4>
             <% @user.user_parties.each do |user_party| %>
               <% if user_party.viewing_party_id == vp.id %>
                 <h5>Hosting</h5>

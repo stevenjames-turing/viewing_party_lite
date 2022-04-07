@@ -1,7 +1,7 @@
 <center><h2>Create A Movie Party for <%= @movie.title %></h2></center>
 <p>
 <div class="container" align="center" id="discover_movies">
-      <%= button_to("Discover Movies", user_discover_index_path(@user), method: :get)%>      
+      <%= button_to("Discover Movies", discover_index_path, method: :get)%>      
 </div>
 </p>
 <p>
@@ -17,7 +17,7 @@
             <p class="card-text">
             <ul class="host list-group">
               <li class="list-group-item">
-              <%= form_with url: user_movie_viewing_party_index_path(@user, @movie.id), method: :post, local: true do |form| %>
+              <%= form_with url: new_movie_viewing_party_path(@movie.id), method: :post, local: true do |form| %>
               <h6><b>Movie Title:</b> <%= @movie.title %></h6>
               <br>
               <center><%= form.label :duration %>

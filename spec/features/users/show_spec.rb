@@ -11,6 +11,10 @@ RSpec.describe 'User Dashboard Page' do
     @vp3 = ViewingParty.create!(movie_id: 314, duration: 154, date: Time.new(2022, 0o4, 14, 18, 30),
                                 start_time: Time.new(2022, 0o4, 14, 18, 30))
     @user1 = User.create!(name: 'Becky', email: 'becky@example.com', password: 'test')
+    visit login_form_path
+    fill_in 'email', with: 'becky@example.com'
+    fill_in 'password', with: 'test'
+    click_button 'Submit'
     @user2 = User.create!(name: 'Steven', email: 'steven@example.com', password: 'test')
     @user5 = User.create!(name: 'Bruce', email: 'Bruce@example.com', password: 'test')
     @up1 = UserParty.create!(viewing_party: @vp1, user: @user1, host: true)
@@ -18,7 +22,7 @@ RSpec.describe 'User Dashboard Page' do
     @up5 = UserParty.create!(viewing_party: @vp2, user: @user5, host: true)
     @up6 = UserParty.create!(viewing_party: @vp2, user: @user1, host: false)
 
-    visit user_path(@user1)
+    visit dashboard_path
   end
 
   context 'data is displayed on page', :vcr do
@@ -29,7 +33,7 @@ RSpec.describe 'User Dashboard Page' do
     it 'has a button to Discover Movies', :vcr do
       expect(page).to have_button('Discover Movies')
       click_button('Discover Movies')
-      expect(current_path).to eq(user_discover_index_path(@user1))
+      expect(current_path).to eq(discover_index_path)
     end
     it 'has a section that lists viewing parties', :vcr do
       within '#viewing_parties' do

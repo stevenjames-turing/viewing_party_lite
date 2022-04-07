@@ -25,7 +25,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Sat, 02 Apr 2022 20:56:42 GMT
+      - Thu, 07 Apr 2022 19:57:26 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -42,21 +42,23 @@ http_interactions:
       X-Memc-Key:
       - 92f0f4310f9aec63bc8c99b5e9b827912d7866f4
       X-Memc-Age:
-      - '9692'
+      - '12332'
       X-Memc-Expires:
-      - '7284'
+      - '4580'
       Etag:
-      - W/"994330c47f36ce8cb454b369113b52d0"
+      - W/"a75bac4abb36b2b18955f96dd0cf2954"
       Vary:
       - Accept-Encoding
       X-Cache:
-      - Miss from cloudfront
+      - Hit from cloudfront
       Via:
-      - 1.1 1e55614427beb2c9a53afc5f91022b80.cloudfront.net (CloudFront)
+      - 1.1 b47da3ec0e7532d35176d3affb527e34.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DFW56-P5
       X-Amz-Cf-Id:
-      - "-SfIjt87Nli6ydyNvq1ZY1PvJVwnkRzZhY-oygfLDFFZ88JCM_hAaw=="
+      - 8y8RV3QGt0TA3ZKMDHmwJCTG4512aXyKK8H1H-9Qli8RS8AMerRefw==
+      Age:
+      - '266'
     body:
       encoding: ASCII-8BIT
       string: '{"adult":false,"backdrop_path":"/3rlclw8qHWEX2hYHNi7dAaW1e0.jpg","belongs_to_collection":{"id":295,"name":"Pirates
@@ -64,11 +66,11 @@ http_interactions:
         of the Caribbean: The Curse of the Black Pearl","overview":"Jack Sparrow,
         a freewheeling 18th-century pirate, quarrels with a rival pirate bent on pillaging
         Port Royal. When the governor''s daughter is kidnapped, Sparrow decides to
-        help the girl''s love save her.","popularity":115.116,"poster_path":"/z8onk7LV9Mmw6zKz4hT6pzzvmvl.jpg","production_companies":[{"id":2,"logo_path":"/wdrCwmRnLFJhEoH8GSfymY85KHT.png","name":"Walt
+        help the girl''s love save her.","popularity":115.847,"poster_path":"/z8onk7LV9Mmw6zKz4hT6pzzvmvl.jpg","production_companies":[{"id":2,"logo_path":"/wdrCwmRnLFJhEoH8GSfymY85KHT.png","name":"Walt
         Disney Pictures","origin_country":"US"},{"id":130,"logo_path":"/c9dVHPOL3cqCr2593Ahk0nEKTEM.png","name":"Jerry
         Bruckheimer Films","origin_country":"US"}],"production_countries":[{"iso_3166_1":"US","name":"United
         States of America"}],"release_date":"2003-07-09","revenue":655011224,"runtime":143,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"Prepare
         to be blown out of the water.","title":"Pirates of the Caribbean: The Curse
-        of the Black Pearl","video":false,"vote_average":7.8,"vote_count":17183}'
-  recorded_at: Sat, 02 Apr 2022 20:56:43 GMT
+        of the Black Pearl","video":false,"vote_average":7.8,"vote_count":17199}'
+  recorded_at: Thu, 07 Apr 2022 20:01:52 GMT
 recorded_with: VCR 6.1.0
