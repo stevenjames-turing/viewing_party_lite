@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   get '/', to: 'application#landing'
   get '/register', to: 'users#new', as: 'new_user'
+  get '/login', to: 'users#login_form', as: 'login_form'
+  post '/login', to: 'users#login_user', as: 'login_user'
   get '/users/movies/:id', to: 'movies#show'
   resources :users, only: [:show, :create] do
     resources :discover, only: [:index]
