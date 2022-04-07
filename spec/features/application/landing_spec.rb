@@ -69,4 +69,10 @@ RSpec.describe 'Landing Page' do
       expect(current_path).to eq(user_path(@user2))
     end
   end
+
+  it 'has a button to login a user' do 
+    expect(page).to have_button('Log In')
+    click_button 'Log In'
+    expect(current_path).to eq(login_form_path)
+  end
 end
