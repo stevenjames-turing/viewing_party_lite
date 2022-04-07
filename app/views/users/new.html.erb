@@ -1,4 +1,10 @@
 <center><h1> Register </h1></center>
+<% if current_user %>
+  <%= link_to "Logout", "/logout", method: :delete %>
+<% else %>
+  <%= link_to "Register", '/register' %>
+  <%= link_to "Log In", '/login' %>
+<% end %>
 
 <%= form_with url: "/users", method: :post, local: true do |f| %>
   <center><%= f.label :name %>
